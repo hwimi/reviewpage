@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.www.repository.ReservationMapper">
+
+    <insert id="insert">
+        INSERT INTO reservations (name, date)
+        VALUES (#{name}, #{date})
+    </insert>
+
+    <select id="selectByReCode" resultType="com.ezen.www.domain.ReservationVO">
+        SELECT * FROM reservations WHERE re_code = #{reCode}
+    </select>
+
+    <select id="getList" resultType="com.ezen.www.domain.ReservationVO">
+        SELECT * FROM reservations
+    </select>
+
+    <update id="update">
+        UPDATE reservations
+        SET name = #{name}, date = #{date}
+        WHERE re_code = #{reCode}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM reservations WHERE re_code = #{reCode}
+    </delete>
+
+</mapper>

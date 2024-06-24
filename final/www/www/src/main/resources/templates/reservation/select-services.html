@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout::setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+        <div class="container-sm">
+            <!--제목-->
+            <div class="row">
+                <h1>Select Care Services</h1>
+            </div>
+            <!---->
+            <!--카드-->
+            <div class="row d-flex justify-content-center">
+                <div class="col-auto mx-2">
+                    <a href="/reservation/select-options?idx=1">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/dist/image/cut.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">미용 (소형견 기준/옵션 추가)</p>
+                                <p class="card-text">52,000원</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-auto mx-2">
+                    <a href="/reservation/select-options?idx=2">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/dist/image/bath.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">목욕 (소형견 기준/옵션 추가)</p>
+                                <p class="card-text">45,000원</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!---->
+        </div>
+    </th:block>
+</th:block>

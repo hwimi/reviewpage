@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.www.repository.ReviewPageMapper">
+
+    <insert id="post">
+        insert into comment (tno, writer, content, score)
+        values (#{tno}, #{writer}, #{content}, #{score})
+    </insert>
+
+    <select id="detail" resultType="com.ezen.www.domain.TeacherVO">
+        select * from teacher where tno = #{tno}
+    </select>
+
+    <select id="getComments" resultType="com.ezen.www.domain.CommentVO">
+        select c.*, t.name as teacherName
+        from comment c
+        left join teacher t on c.tno = t.tno
+        where c.tno = #{tno}
+        order by c.reg_date desc
+    </select>
+
+    <select id="getAllTeachers" resultType="com.ezen.www.domain.TeacherVO">
+        select * from teacher
+    </select>
+
+    <delete id="delete">
+        delete from comment where cno = #{cno}
+    </delete>
+
+    <update id="update">
+        update comment
+        set content = #{content},
+        score = #{score}
+        where cno = #{cno}
+    </update>
+    <select id="getCommentCount" resultType="int">
+        select count(*) from comment where tno = #{tno}
+    </select>
+    <select id="getAverageScore" resultType="double">
+        select avg(score) from comment where tno = #{tno}
+    </select>
+    <select id="getComment" resultType="com.ezen.www.domain.CommentVO">
+        SELECT * FROM comment WHERE cno = #{cno}
+    </select>
+</mapper>

@@ -1,0 +1,115 @@
+-- user : springUser
+-- password : mysql
+-- db : petdb
+
+-- create database
+create database 'petdb';
+
+-- create user
+create user 'springUser'@'localhost' identified by 'mysql';
+
+grant all privileges on petdb.* to 'springUser'@'localhost';
+
+-- create member table
+create table member(
+id varchar(30) not null,
+pwd varchar(256) not null,
+name varchar(30),
+tell varchar(30),
+address varchar(100),
+reg_at datetime default now(),
+up_at datetime default now(),
+primary key(id));
+
+-- member table : 칼럼 추가
+alter table member add is_del varchar(20) default 'N' not null;
+alter table member add gender varchar(20);
+alter table member add birth_y varchar(20);
+alter table member add birth_m varchar(20);
+alter table member add birth_d varchar(20);
+
+-- create auth_member table & foreign key setting
+create table auth_member(
+id varchar(30) not null,
+auth varchar(100) not null,
+foreign key(id) references member(id));
+
+-- 관리자 권한 부여
+insert into auth_member values('11', 'ROLE_ADMIN');
+
+--글쓰기 등록
+create table community(
+no int auto_increment,
+title varchar(256) not null,
+writer varchar(256) not null,
+reg_date datetime default now(),
+primary key(no));
+
+-- 메뉴
+CREATE TABLE menu(
+me_code BIGINT PRIMARY KEY NOT NULL,
+name VARCHAR(30),
+size VARCHAR(30),
+price INT);
+
+--옵션
+CREATE TABLE options(
+op_code BIGINT PRIMARY KEY NOT NULL,
+name VARCHAR(30),
+price INT);
+
+-- reservations 테이블 생성
+CREATE TABLE reservations (
+re_code BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+name VARCHAR(255),
+date DATETIME,
+duration INT,
+price INT,
+status CHAR(5),
+reg_at DATETIME DEFAULT NOW(),
+id VARCHAR(30) NOT NULL,
+me_code BIGINT NOT NULL,
+op_code BIGINT NOT NULL,
+FOREIGN KEY (id) REFERENCES member(id),
+FOREIGN KEY (me_code) REFERENCES menu(me_code),
+FOREIGN KEY (op_code) REFERENCES options(op_code));
+
+-- 메뉴 데이터 추가
+insert into menu(me_code, name, size, price) values
+(1, "미용", "소형", 50000),
+(2, "미용", "중형", 60000),
+(3, "미용", "대형", 70000),
+(4, "목욕", "소형", 52000),
+(5, "목욕", "중형", 62000),
+(6, "목욕", "대형", 72000);
+
+--옵션 데이터 추가
+insert into options(op_code, name, price) values
+(1,"소형",1000),
+(2,"중형",2000),
+(3,"대형",3000),
+(4,"얼굴",900),
+(5,"귀",800),
+(6,"발",700),
+(7,"꼬리",600);
+
+--선생이름 테이블
+create table teacher (
+    tno int auto_increment,
+    name varchar(100) not null,
+    image varchar(255) not null,
+    primary key (tno));
+);
+
+--코멘트 테이브
+create table comment (
+    cno int auto_increment,
+    tno int int not null
+    id varchar(100) not null
+    content varchar(1000) not null,
+    reg_date datetime default now(),
+    primary key (cno));
+);
+--코멘트 테이블 추가 점수
+ALTER TABLE comment ADD COLUMN score INT DEFAULT 0;
+

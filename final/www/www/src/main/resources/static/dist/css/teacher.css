@@ -1,0 +1,121 @@
+/* 기본 레이아웃 설정 */
+.main_teacher > h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* 펫 케어 텍스트 색상 설정 */
+.container-sm > .main_teacher > h1 > .pet_careText {
+    color: rgb(34, 204, 137);
+}
+
+/* 숫자 텍스트 색상 설정 */
+.number {
+    color: rgb(34, 204, 137);
+}
+
+/* 메인 선생님 레이아웃 설정 */
+.main_teacher {
+    padding: 0;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 큰 선생님 이미지 영역 */
+.big_teacher {
+    width: 50%;
+    text-align: center;
+    margin: 20px;
+}
+
+/* 메인 텍스트 설정 */
+.main_text {
+    color: #2a2a2a;
+    font-weight: 700;
+}
+
+/* 텍스트 박스 설정 */
+.text_box {
+    margin-top: 15px;
+    color: #2a2a2a;
+    font-weight: 700;
+    position: relative;
+}
+
+/* 큰 이미지 설정 */
+.mainImage > img {
+    width: 50%;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* 작은 선생님 영역 설정 */
+.min_teacher {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 3s ease-in-out; /* 애니메이션 효과 설정 */
+}
+
+/* 애니메이션 클래스 */
+.fade-in {
+    opacity: 1;
+}
+
+/* 선생님 카드 설정 */
+.teacher {
+    width: 80%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 20px 0; /* 카드 사이 간격 조정 */
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    justify-content: space-between; /* 요소들을 수평으로 균등하게 배치 */
+}
+
+/* 선생님 이미지 설정 */
+.teacher > .image_box {
+    flex-shrink: 0;
+}
+
+.teacher > .image_box > .image {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* 선생님 텍스트 설정 */
+.teacher > .text_box {
+    flex-grow: 1;
+    position: relative;
+    margin-left: 20px;
+}
+
+.teacher > .text_box > p {
+    margin: 10px;
+}
+
+/* 추가 이미지 설정 */
+.teacher > .extra_image {
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+
+.teacher > .extra_image > img {
+    width: 200px; /* 추가 이미지 크기 설정 */
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+}

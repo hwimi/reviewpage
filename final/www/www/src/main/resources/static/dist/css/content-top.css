@@ -1,0 +1,75 @@
+.content-top{
+    height: 500px;
+    margin-bottom: 50px;
+}
+.content-top>.content-top_image{
+    width: 100%;
+    height: 85%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+
+/* title 관련 */
+.content-top>.content-top_image>.content-top_title{
+    height: 100%;
+    line-height: 425px;
+    text-align: center;
+}
+.content-top>.content-top_image>.content-top_title>p{
+    height: 100%;
+    font-size: 50px;
+    color: white;
+    margin: 0;
+    visibility: visible;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-name: padein;
+}
+
+@keyframes padein {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+
+}
+
+
+/* subtitle 관련 */
+.content-top>.content-top_list{
+    height: 15%;
+    background-color: darkolivegreen;
+}
+
+.content-top>.content-top_list>ul{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    line-height: 75px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.content-top>.content-top_list>ul>li{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.content-top>.content-top_list>ul>li>a{
+    color: white;
+    font-size: 20px;
+}
+
+.content-top>.content-top_list>ul>li>a:hover{
+    text-decoration: underline;
+}
+
+
+

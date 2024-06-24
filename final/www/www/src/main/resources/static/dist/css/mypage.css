@@ -1,0 +1,75 @@
+.myPage_main{
+    width: 100%;
+}
+.content-titleName{
+    padding-left: 28px;
+}
+.myPage_menu{
+    padding-top: 10px;
+}
+.myPage_menu>ul>li{
+    margin-bottom: 10px;
+}
+.myPage_menu>ul>li>a:hover{
+    font-weight: bolder;
+}
+
+
+.myPage_headContent{
+    height: 150px;
+    background-color: white;
+    padding: 25px 0;
+    text-align: center;
+}
+.head_ct{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+.memb_tier{
+    line-height: 100px;
+}
+.memberInfo_area{
+    width: 300px;
+    height: 100%;
+    line-height: 150px;
+    border-right: 1px solid rgba(128, 128, 128, 0.281);
+}
+.memberInfo_area>.member_name{
+    font-size: 25px;
+    display: block;
+}
+.memberInfo_area>.purchase_amount{
+    font-size: 20px;
+    display: block;
+
+}
+.view_point{
+    height: 100%;
+    line-height: 150px;
+    position: relative;
+}
+.view_point>a>h6{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -110%);
+}
+.view_point>a>span{
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+}
+.myPage_mainContent{
+    padding: 70px;
+}
+.myPage_mainContent_detail{
+    color: gray;
+    padding: 70px;
+}
+.orderList{
+    text-align: center;
+}
+

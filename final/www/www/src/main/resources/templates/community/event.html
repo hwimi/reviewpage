@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout :: setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+        <link rel="stylesheet" th:href="@{/dist/css/event.css}">
+        <div class="content-top">
+            <div class="content-top_image" style="background-image: url(../dist/image/petvip.png)">
+                <div class="content-top_title">
+                    <p><strong>EVENT</strong></p>
+                </div>
+            </div>
+            <div class="content-top_list">
+                <ul>
+                    <li>
+                        <a th:href="@{/comm/announcement}"><strong>AboutUs</strong></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/comm/qna}"><strong>Q&A</strong></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/comm/event}"><strong>EVENT</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="ev_container">
+            <div class="top_message">
+                <span class="event">EVENT</span>
+                <p>PETVIP에서 진행하는 새로운 기획 및 이벤트 등 소식을 한눈에 살펴볼 수 있습니다</p>
+            </div>
+            <div class="pv_box">
+                <div class="fade_wrap">
+                    <h2>공지</h2>
+                    <img th:src="@{/dist/image/양주시.png}" alt="" class="pv_image">
+                    <p class="a">2024 양주시 찾아가는 상담 지도실 신청자를 모집합니다</p>
+                </div>
+                <div class="fade_wrap">
+                    <h2>공지</h2>
+                    <img th:src="@{/dist/image/건국대.png}" alt="" class="pv_image">
+                    <p class="a"> 공지 [수강신청기간 연장]건국대학교 미래지식 교육원 전문교육 과정 PETVIP 펫 매니저 전문과정>강의 수강생 모집
+                    </p>
+                </div>
+                <div class="fade_wrap">
+                    <h2>공지</h2>
+                    <img th:src="@{/dist/image/정기권.jpg}" alt="" class="pv_image">
+                    <p class="a">연장[펫VIP]애견출장방문미용/목욕 서비스 정기권 5회, 10회 신청시 선물을 증정합니다 :)</p>
+                </div>
+                <div class="fade_wrap">
+                    <h2>공지</h2>
+                    <img th:src="@{/dist/image/런칭.jpg}" alt="" class="pv_image">
+                    <p class="a">PETVIP 산책 그룹훈련& 1:1 산책 훈련 서비스 런칭🥳</p>
+                </div>
+                <div class="fade_wrap">
+                    <h2>공지</h2>
+                    <img th:src="@{/dist/image/산책서비스.jpg}" alt="" class="pv_image">
+                    <p class="a">[산책 베타 이벤트]산책 서비스 25% 할인 행사🐕‍🦺</p>
+                </div>
+            </div>
+        </div>
+        <script th:src="@{/js/event.js}"></script>
+    </th:block>
+</th:block>
+</html>

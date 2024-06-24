@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout :: setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+        <head>
+            <link rel="stylesheet" th:href="@{/dist/css/announcement.css}">
+        </head>
+        <div class="content-top">
+            <div class="content-top_image" style="background-image: url(../dist/image/petvip.png)">
+                <div class="content-top_title">
+                    <p><strong>AboutUs</strong></p>
+                </div>
+            </div>
+            <div class="content-top_list">
+                <ul>
+                    <li>
+                        <a th:href="@{/comm/announcement}"><strong>AboutUs</strong></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/comm/qna}"><strong>Q&A</strong></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/comm/event}"><strong>EVENT</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container an_container">
+            <img class="middle_image" th:src="@{/dist/image/petvip.png}">
+            <div class="log_wrap">
+                <img class="log_image" th:src="@{/dist/image/biglogo.png}">
+                <p class="log_text"><span class="yellow">프리미엄</span>+<span class="green">반려동물 케어</span></p>
+            </div>
+            <div class="middle_text">
+                <img class="text_image" th:src="@{/dist/image/따옴표.png}">
+                <p>펫 vip는 반려동물을 처음 키울 때 무엇을 해줘야할지 모를때</p>
+                <p>반려견 케어가 힘들 때 반려인과 반려견의 연결고리가 되어드리겠습니다</p>
+            </div>
+            <div class="middle_textbox">
+                <div class="trust">
+                    <img th:src="@{/dist/image/메달.webp}">
+                    <h2>신뢰</h2>
+                    <p>까다로운 입사 절차와 메니저 평가시스템을 통해</p>
+                    <p>모든 서비스의 신뢰를 보장합니다</p>
+                </div>
+                <div class="premium">
+                    <img th:src="@{/dist/image/다이아몬드.webp}">
+                    <h2>프리미엄</h2>
+                    <p>필드경력 3년 이상의 펫매니저들의</p>
+                    <p>최상의 서비스를 제공하고 있습니다</p>
+                </div>
+                <div class="quality">
+                    <img th:src="@{/dist/image/따봉.webp}">
+                    <h2>퀄리티</h2>
+                    <p>대형견 노령견 전문 펫매니저를 고용하여</p>
+                    <p>나이 견종 상관없이 최상의 서비스를 제공합니다</p>
+                </div>
+            </div>
+            <div class="select_wrap">
+                <img class="select_image" th:src="@{/dist/image/따옴표.png}">
+                <h3>이런분들에게 추천드려요</h3>
+            </div>
+            <div class="select">
+                <div class="select1">
+                    <img class="select1_image" th:src="@{/dist/image/about1.jpg}">
+                    <div class="text_box">
+                        <strong>반려견만을 위한 전문가의</strong>
+                        <strong>1:1 맞춤 케어를 원하시는 분</strong>
+                        <hr>
+                        <p>반려견의 동일한 매니저 케어를 받아야 정서적으로 더 좋습니다</p>
+                    </div>
+                </div>
+                <div class="select2">
+                    <img class="select1_image" th:src="@{/dist/image/about2.jpg}">
+                    <div class="text_box">
+                        <strong>유동적인 일정 때문에 미용샵 예약이 어려우신 분</strong>
+                        <hr>
+                        <p>잦은 야근으로 집에 있는 우리 아이 산책이나 미용 및 목욕으로 걱정하시는 분들에게</p>
+                        <p>저희 브이아이펫이 도와드리겠습니다</p>
+                    </div>
+                </div>
+                <div class="select3">
+                    <img class="select1_image" th:src="@{/dist/image/about3.jpg}">
+                    <div class="text_box">
+                        <strong> 스트레스에 민감한 노령견을 키우시는 분</strong>
+                        <hr>
+                        <p>노령견 같은 경우에는 외부 요인에 의해 스트레스를 받습니다</p>
+                    </div>
+                </div>
+                <div class="select4">
+                    <img class="select1_image" th:src="@{/dist/image/about4.jpg}">
+                    <div class="text_box">
+                        <strong>전문 샵을 찾기 힘든 대형견을 키우시는 분</strong>
+                        <hr>
+                        <p>몸무게가 많이 나가는 대형견부터 외부에 나가면 예민해지는 친구들</p>
+                    </div>
+                </div>
+            </div>
+            <div class="care">
+                <div class="text_box">
+                    <p>CARE PET PARE</p>
+                    <strong>킨텍스 <span>케에펫페어</span></strong>
+                    <p>11.19.FRI-11.21SUN</p>
+                </div>
+                <div class="care_image">
+                    <img class="pet_careImage" th:src="@{/dist/image/care1.jpg}">
+                </div>
+                <div class="care_image">
+                    <img class="pet_careImage" th:src="@{/dist/image/care2.jpg}">
+                </div>
+                <div class="care_image">
+                    <img class="pet_careImage" th:src="@{/dist/image/care3.jpg}">
+                </div>
+                <div class="care_image">
+                    <img class="pet_careImage" th:src="@{/dist/image/care4.jpg}">
+                </div>
+            </div>
+            <div class="bottom">
+                <p>Contact us</p>
+                <p>이름</p>
+                <input type="text" id="name">
+                <p>연락처</p>
+                <input type="text" id="number">
+                <p>내용</p>
+                <textarea class="text_area" id="text_area"></textarea>
+                <button type="button" id="button">전송</button>
+            </div>
+        </div>
+        <script th:src="@{/js/announcement.js}"></script>
+    </th:block>
+</th:block>
+</html>

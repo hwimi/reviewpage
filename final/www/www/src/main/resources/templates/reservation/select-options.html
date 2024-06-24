@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout::setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+        <div class="container-sm">
+            <!--제목-->
+            <div class="row">
+                <h1>Select Option</h1>
+            </div>
+            <!---->
+            <!--메인-->
+            <div class="row">
+                <!--왼쪽 사진-->
+                <div class="col">
+
+                </div>
+                <!---->
+                <!--셀렉트-->
+                <div class="col">
+                    <h3 id="idx-display"></h3>
+                    <hr>
+                    <form action="/reservation/booking" method="get">
+                        <p>기본사항*</p>
+                        <select class="form-select" id="size" aria-label="Default select example">
+                            <option value="크기 (필수)" selected>크기 (필수)</option>
+                            <option th:each="op : ${options}" th:value="${op.price}" th:text="${op.size}"></option>
+                        </select>
+                        <hr>
+                        <p>추가사항</p>
+                        <select class="form-select" id="fur" aria-label="Default select example">
+                            <option value="털엉킴,뭉침 추가 (선택)" selected>털엉킴,뭉침 추가 (선택)</option>
+                            <option value="1">소형</option>
+                            <option value="2">중형</option>
+                            <option value="3">대형</option>
+                        </select>
+                        <select class="form-select" id="aggression" aria-label="Default select example">
+                            <option value="공격성 추가 (선택)" selected>공격성 추가 (선택)</option>
+                            <option value="1">소형</option>
+                            <option value="2">중형</option>
+                            <option value="3">대형</option>
+                        </select>
+                        <hr>
+                        <select class="form-select" id="temporary" aria-label="Default select example">
+                            <option value="임시 (선택)" selected>임시 (선택)</option>
+                            <option value="1">소형</option>
+                            <option value="2">중형</option>
+                            <option value="3">대형</option>
+                        </select>
+                        <hr>
+                        <div id="result"></div>
+                        <button type="submit" onclick="location.href='#'">예약</button>
+                        <button type="submit" onclick="location.href='#'">담기</button>
+                    </form>
+                </div>
+                <!---->
+                <!--상세정보 및 리뷰-->
+                <div class="row">
+                    <h1>상세정보 / 구매평</h1>
+                    <hr>
+                </div>
+                <!---->
+            </div>
+            <!---->
+        </div>
+        <!--스크립트-->
+        <script>
+            document.getElementById('size').addEventListener('change', updateResult);
+            document.getElementById('fur').addEventListener('change', updateResult);
+            document.getElementById('aggression').addEventListener('change', updateResult);
+            document.getElementById('temporary').addEventListener('change', updateResult);
+
+            function updateResult(event) {
+                const select = event.target;
+                const label = select.options[0].textContent;
+                const selected = select.selectedOptions[0].textContent;
+                const value = select.value;
+
+                // Update result div with the new selection
+                const resultDiv = document.getElementById('result');
+                const existingBox = document.querySelector(`#result .${select.id}-box`);
+
+                if (value !== label) {
+                    if (existingBox) {
+                        existingBox.querySelector('span').textContent = `${label}: ${selected}: ${value}`;
+                    } else {
+                        resultDiv.appendChild(createResultBox(label, value, selected, select.id));
+                    }
+                }
+
+                // Reset the select box to the default option
+                select.value = label;
+            }
+
+            function createResultBox(label, value, selected, selectId) {
+                const box = document.createElement('div');
+                box.classList.add(`${selectId}-box`);
+                box.style.border = '1px solid #ccc';
+                box.style.padding = '10px';
+                box.style.margin = '5px';
+                box.style.display = 'flex';
+                box.style.justifyContent = 'space-between';
+                box.style.alignItems = 'center';
+
+                const text = document.createElement('span');
+                text.textContent = `${label}: ${selected}: ${value}`;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = '삭제';
+                deleteButton.style.marginLeft = '10px';
+                deleteButton.onclick = () => box.remove();
+
+                box.appendChild(text);
+                box.appendChild(deleteButton);
+
+                return box;
+            }
+
+            // 쿼리스트링 값을 특정 이름의 파라미터로 받기
+            function getQueryParam(param) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+
+            // idx 쿼리 파라미터에 따라 h3의 내용과 temp의 html을 바꾸기
+            window.onload = function() {
+                const idx = getQueryParam('idx');
+                const idxDisplay = document.getElementById('idx-display');
+                const idxHtml = document.getElementById('temporary');
+
+                if (idx === '1') {
+                    idxDisplay.textContent = '미용 (소형견 기준/옵션 추가)';
+                    idxHtml.innerHTML = `
+                        <option value="부분스타일 (선택)" selected>부분스타일 (선택)</option>
+                        <option value="4">얼굴</option>
+                        <option value="5">귀</option>
+                        <option value="6">발</option>
+                        <option value="7">꼬리</option>
+                    `;
+                } else if (idx === '2') {
+                    idxDisplay.textContent = '목욕 (소형견 기준/옵션 추가)';
+                    idxHtml.innerHTML = `
+                        <option value="머드팩 (선택)" selected>머드팩 (선택)</option>
+                        <option value="1">소형</option>
+                        <option value="2">중형</option>
+                        <option value="3">대형</option>
+                    `;
+                }
+            }
+        </script>
+
+    </th:block>
+</th:block>

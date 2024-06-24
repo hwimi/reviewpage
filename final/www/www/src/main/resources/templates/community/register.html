@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout :: setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+        <head>
+            <link rel="stylesheet" th:href="@{/dist/css/co_register.css}">
+        </head>
+        <form action="/comm/register" method="post">
+            <div class="re_container">
+                <div class="add">
+                    <div class="re_title">
+                        <label for="title" class="t">제목:</label>
+                        <input type="text" name="title" id="title" placeholder="타이틀을 입력하세요:">
+                    </div>
+                    <div class="re_writer">
+                        <label for="writer" class="w">작성자:</label>
+                        <input type="text" name="writer" id="writer" placeholder="작성자를 입력하세요">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" id="addBtn" disabled>전송</button>
+        </form>
+        <script th:src="@{/js/co_register.js}"></script>
+    </th:block>
+</th:block>
+</html>

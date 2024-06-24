@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout::setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+
+        <th:block sec:authosize="isAuthenticated()" th:with="auth=${#authentication.getPrincipal()}">
+
+        <main>
+            <div class="content-bg">
+                <div class="container-sm">
+                    <h3 class="content-titleName"><strong>MyPage</strong></h3>
+                    <div class="container">
+                        <div class="row justify-content-md-center myPage_main">
+                            <div class="col col-lg-2 myPage_menu">
+                                <ul>
+                                    <li><a th:href="@{/member/myPage_reserve}"><strong>주문 조회</strong></a></li>
+                                    <li><a th:href="@{/member/myPage_point}"><strong>적립금</strong></a></li>
+                                    <li><a th:href="@{/member/myPageAsk}"><strong>1:1 문의</strong></a></li>
+                                    <li><a th:href="@{/member/myPage_info}"><strong>내 정보</strong></a></li>
+                                    <li><a data-bs-toggle="modal" data-bs-target="#staticBackdrop"><strong>회원탈퇴</strong></a></li>
+
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Warning</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    정말 탈퇴하시겠습니까?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">취소</button>
+                                                    <button type="button" class="btn btn-light"><a th:href="@{/member/myPage_resign}">탈퇴</a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                            <div class="col myPage_headContent">
+                                <div class="myPage_head">
+                                    <div class="head_ct">
+                                        <div class="col memb_tier">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-gem" viewBox="0 0 16 16">
+                                                <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6zm11.386 3.785-1.806-2.41-.776 2.413zm-3.633.004.961-2.989H4.186l.963 2.995zM5.47 5.495 8 13.366l2.532-7.876zm-1.371-.999-.78-2.422-1.818 2.425zM1.499 5.5l5.113 6.817-2.192-6.82zm7.889 6.817 5.123-6.83-2.928.002z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="col memberInfo_area">
+                                            <!-- 이름 가져오기 -->
+                                            <span class="member_name"><h6>[[${auth.mvo.id}]]　님　 안녕하세요.</h6></span>
+                                            <span class="purchase_amount">
+                                                <!-- 금액 가져오기 -->
+                                                구매금액 : 100,000,000,000 원
+                                            </span>
+                                        </div>
+                                        <div class="col view_point">
+                                            <a>
+                                                <h6>적립금</h6>
+                                                <span><strong>12584 점</strong></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-md-center">
+                            <div class="col col-lg-2">
+                            </div>
+                            <div class="col myPage_mainContent">
+                                <div>
+                                    <h4><strong>주문 조회</strong></h4>
+                                </div>
+                                <div class="myPage_mainContent_detail">
+
+
+                                    <div class="orderList">주문 내역이 없습니다.</div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        </th:block>
+
+
+
+    </th:block>
+</th:block>

@@ -1,0 +1,51 @@
+.hide{
+    display: none;
+}
+.content-bg{
+    padding: 50px;
+    background-color: #f5f6f7;
+}
+
+
+/* register, registerpolicy, login 관련 */
+.content-titleName{
+    margin-bottom: 50px;
+}
+.loginPage{
+    height: 500px;
+    padding: 50px 0;
+}
+.login_form{
+    width: 500px;
+}
+.registerPage{
+    padding: 50px 0px;
+}
+.register_form{
+    width: 500px;
+}
+.checkBtn{
+    margin-top: 10px;
+}
+.sign_registerButton{
+    text-align: center;
+    margin-top: 20px;
+}
+.sign_registerButton>button{
+    margin: 0 10px;
+}
+.sign_registerButton>a>button{
+    margin: 0 10px;
+}
+.sign_userinfo>.form_group>ul{
+    display: inline-block;
+}
+.sign_userinfo>.form_group>ul>li{
+    display: inline-block;
+}
+._join_btn>a{
+    color: white;
+}
+.login_error{
+    margin-top: 0 20px;
+}

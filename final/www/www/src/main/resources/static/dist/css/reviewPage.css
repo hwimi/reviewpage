@@ -1,0 +1,139 @@
+/* 기본 스타일 */
+.rp_container {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+/* 선생 이름 설정 */
+.rp_container > .teacher_name {
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 24px;
+    text-align: center;
+    width: 70%;
+    font-weight: bold; /* 이름을 볼드체로 설정 */
+}
+
+.rp_container > .teacher_name > .top_name {
+    color: rgb(34, 204, 137);
+}
+
+/* 이미지 설정 */
+.rp_container > .top_image {
+    width: 50%;
+    margin: auto;
+}
+
+.rp_container > .top_image > .review_image > .review_teacher {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.description {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* 댓글창 */
+.review {
+    width: 80%;
+    margin: 0 auto; /* 중앙에 위치시키기 위해 추가 */
+    text-align: left; /* 텍스트를 왼쪽 정렬 */
+}
+
+
+
+.teacher-name {
+    font-weight: bold;
+    color: rgb(34, 204, 137);
+}
+
+.comment-writer,
+.comment-content {
+    text-align: left;
+    margin: 5px 0;
+}
+
+.comment-regdate {
+    font-size: 12px;
+    color: gray;
+}
+
+/* 댓글 입력 창과 점수 선택 창 크기 조정 */
+.input-group.mb-3 {
+    display: flex;
+    align-items: center;
+}
+
+.comment-input {
+    flex: 1 0 80%; /* flex-grow, flex-shrink, flex-basis */
+}
+
+.score-select {
+    flex: 1 0 20%; /* flex-grow, flex-shrink, flex-basis */
+    max-width: 100px; /* 선택 사항: 선택 창이 너무 크게 늘어나지 않도록 하기 위해 설정됨 */
+}
+
+/* 댓글창 끝 */
+
+/* 다른 매니저 이름들 리스트 */
+.manager-list {
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+}
+
+.manager-list > ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* 가로로 중앙 정렬 */
+    align-items: center; /* 세로로 중앙 정렬 */
+    margin: 0; /* 중앙 정렬을 위해 추가 */
+}
+
+.manager-list > ul > li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.manager-list > ul > li > a {
+    text-decoration: none;
+    color: rgb(34, 204, 137);
+}
+
+.manager-list > ul > li > a:hover {
+    text-decoration: underline;
+}
+
+/* 별점 표시 스타일 */
+.star.full {
+    color: #FFD700;
+}
+
+.star.half {
+    color: #FFD700;
+    position: relative;
+}
+
+.star.half:before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+    color: #FFD700;
+}
+
+.star.empty {
+    color: #ddd;
+}

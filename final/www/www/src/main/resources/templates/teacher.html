@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout::setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+        <link rel="stylesheet" th:href="@{/dist/css/teacher.css}">
+        <main>
+            <!-- content-top 영역 -->
+            <div class="content-top">
+                <div class="content-top_image" style="background-image: url(../dist/image/petvip.png)">
+                    <div class="content-top_title">
+                        <p><strong>매니저들을 찾아보세요</strong></p>
+                    </div>
+                </div>
+                <div class="content-top_list">
+                    <ul>
+                        <li>
+                            <a th:href="@{/reservation/select-services}"><strong>케어서비스</strong></a>
+                        </li>
+                        <li>
+                            <a th:href="@{/reservation/select-services}"><strong>훈련서비스</strong></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- content-main 영역 -->
+            <div class="container-sm">
+                <div class="container main_teacher">
+                    <!-- 숫자 카운트 영역 -->
+                    <h2 id="count"></h2>
+                    <!-- 제목 영역 -->
+                    <h1><span class="pet_careText">펫 케어</span> 전문가님들을 소개합니다</h1>
+                    <div class="big_teacher" id="big_teacher">
+                        <a id="bigImageLink">
+                            <div class="mainImage" id="mainImage">
+                                <!-- 클릭한 이미지가 이곳에 크게 표시됩니다 -->
+                            </div>
+                        </a>
+                        <p id="text" class="main_text"></p>
+                        <p class="select_teacher" id="message">매니저 분들을 선택해보세요</p>
+                    </div>
+                    <div class="min_teacher" id="min_teacher">
+                        <!-- 매니저 카드 리스트 영역 -->
+                        <div class="teacher" onclick="showBigImage('/dist/image/남자1.webp', '안녕하세요 저는 철수 입니다<br>저는 강아지를 12년째 키우고 있습니다<br>저는 산책 샤워 서비스가 가능합니다<br>여러분의 소중한 가족 저의 가족이라고 생각하겠습니다', 1)">
+                            <div class="image_box">
+                                <img class="image" th:src="@{/dist/image/남자1.webp}">
+                            </div>
+                            <div class="text_box">
+                                <p>안녕하세요 저는 철수 입니다</p>
+                                <p>저는 강아지를 12년째 키우고 있습니다</p>
+                                <p>저는 산책 샤워 서비스가 가능합니다</p>
+                                <p>여러분의 소중한 가족 저의 가족이라고 생각하겠습니다</p>
+                            </div>
+                            <div class="extra_image">
+                                <img class="image" th:src="@{/dist/image/관리1.webp}">
+                            </div>
+                        </div>
+                        <!-- 나머지 매니저 카드 리스트 동일한 방식으로 수정 -->
+                        <div class="teacher" onclick="showBigImage('/dist/image/여자1.webp', '안녕하세요 저는 영희 입니다<br>저의 경력은 강아지 5년째 고양이를 3년째 키우고 있습니다<br>저는 24시간 서비스가 가능합니다 필요하시면 꼭 불러주세요<br>언제나 만족하는 서비스를 선사하겠습니다', 2)">
+                            <div class="image_box">
+                                <img class="image" th:src="@{/dist/image/여자1.webp}">
+                            </div>
+                            <div class="text_box">
+                                <p>안녕하세요 저는 영희 입니다</p>
+                                <p>저의 경력은 강아지 5년째 고양이를 3년째 키우고 있습니다</p>
+                                <p>저는 24시간 서비스가 가능합니다 필요하시면 꼭 불러주세요</p>
+                                <p>언제나 만족하실만한 서비스를 선사하겠습니다</p>
+                            </div>
+                            <div class="extra_image">
+                                <img class="image" th:src="@{/dist/image/관리2.webp}">
+                            </div>
+                        </div>
+                        <div class="teacher" onclick="showBigImage('/dist/image/여자2.webp', '안녕하세여 저는 유쥰 입니다<br>저는 캣매니저 공인 자격증을 가지고 있습니다<br>여러분의 소중한 고양이 저한테 맡겨주세여', 3)">
+                            <div class="image_box">
+                                <img class="image" th:src="@{/dist/image/여자2.webp}">
+                            </div>
+                            <div class="text_box">
+                                <p>안녕하세여 저는 유쥰 입니다</p>
+                                <p>저는 캣매니저 공인 자격증을 가지고 있습니다 </p>
+                                <p>여러분의 소중한 고양이 저한테 맡겨주세여</p>
+                            </div>
+                            <div class="extra_image">
+                                <img class="image" th:src="@{/dist/image/관리6.webp}">
+                            </div>
+                        </div>
+                        <div class="teacher" onclick="showBigImage('/dist/image/남자2.webp', '안녕하세요 저는 이현 입니다<br>저의 경력은 강아지 키우기 몇년<br>고양이 키우기 몇년 입니다<br>당신의 소중한 가족 저한테 맡겨주세요', 4)">
+                            <div class="image_box">
+                                <img class="image" th:src="@{/dist/image/남자2.webp}">
+                            </div>
+                            <div class="text_box">
+                                <p>안녕하세요 저는 이현 입니다</p>
+                                <p>저는 주로 산책과 노령 애완동물을 케어하고 있습니다</p>
+                                <p>힘드신분들은 저한테 맡겨주세요</p>
+                                <p>언제나 여러분 옆에 있겠습니다</p>
+                            </div>
+                            <div class="extra_image">
+                                <img class="image" th:src="@{/dist/image/관리5.webp}">
+                            </div>
+                        </div>
+                        <div class="teacher" onclick="showBigImage('/dist/image/남자3.webp', '안녕하세요 저는 대현 입니다<br>어디가 가야 하실때 애완동물 때문에 걱정이시죠<br>혼자 있을까 걱정이 되신다면<br>언제나 저한테 연락을 주세요', 5)">
+                            <div class="image_box">
+                                <img class="image" th:src="@{/dist/image/남자3.webp}">
+                            </div>
+                            <div class="text_box">
+                                <p>안녕하세요 저는 대현 입니다</p>
+                                <p>어디가 가야 하실때 애완동물 때문에 걱정이시죠</p>
+                                <p>혼자 있을까 걱정이 되신다면</p>
+                                <p>언제나 저한테 연락을 주세요</p>
+                            </div>
+                            <div class="extra_image">
+                                <img class="image" th:src="@{/dist/image/관리3.webp}">
+                            </div>
+                        </div>
+                        <div class="teacher" onclick="showBigImage('/dist/image/여자3.webp', '안녕하세요 저는 수아 입니다<br>저는 늘 여러분과 함께 합니다<br>도움이 필요하시다면<br>언제든 연락을 주세여', 6)">
+                            <div class="image_box">
+                                <img class="image" th:src="@{/dist/image/여자3.webp}">
+                            </div>
+                            <div class="text_box">
+                                <p>안녕하세요 저는 수아 입니다</p>
+                                <p>저는 늘 여러분과 함께 합니다 </p>
+                                <p>도움이 필요하시다면</p>
+                                <p>언제든 연락을 주세여</p>
+                            </div>
+                            <div class="extra_image">
+                                <img class="image" th:src="@{/dist/image/관리4.webp}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script th:src="@{/js/teacher.js}"></script>
+    </th:block>
+</th:block>
+</html>

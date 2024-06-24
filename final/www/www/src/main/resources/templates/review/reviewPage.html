@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout::setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+        <link rel="stylesheet" th:href="@{/dist/css/reviewPage.css}">
+        <div class="rp_container">
+            <div class="teacher_name">매니저 이름: <span th:text="${tvo.name}" class="top_name"></span></div>
+            <div class="top_image">
+                <div class="review_image" th:data-tno="${tvo.tno}">
+                    <img th:src="@{|/dist/image/${tvo.image}|}" class="review_teacher">
+                </div>
+                <div class="description" id="description"></div>
+            </div>
+        </div>
+        <div class="manager-list">
+            <ul>
+                다른매니저를 선택해보세요:
+                <li th:each="teacher : ${teacherList}">
+                    <a th:href="@{|/rev/reviewPage?tno=${teacher.tno}|}" th:text="${teacher.name}"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="review">
+            <!-- comment 등록 라인 -->
+            <!-- post 라인 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="cmtWriter" th:text="${username}">anymore</span> <!-- 사용자 이름 표시 -->
+                <input type="text" id="cmtText" class="form-control comment-input" placeholder="Add Comment..."
+                       aria-label="Username" aria-describedby="basic-addon1">
+                <select id="cmtScore" class="form-select score-select">
+                    <option value="1">1점</option>
+                    <option value="2">2점</option>
+                    <option value="3">3점</option>
+                    <option value="4">4점</option>
+                    <option value="5">5점</option>
+                </select>
+                <button type="button" id="cmtAddBtn" class="btn btn-secondary">post</button>
+            </div>
+            <div id="commentStats" class="mb-3">
+                <p id="commentCount"></p><p id="averageScore"></p>
+            </div>
+            <!-- spread 라인 -->
+            <!-- 댓글 목록 영역 -->
+            <ul class="list-group list-group-flush" id="cmtListArea">
+            </ul>
+        </div>
+
+        <!-- 수정 모달 -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">댓글 수정</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="modifyCno">
+                        <div class="mb-3">
+                            <label for="modifyContent" class="form-label">내용</label>
+                            <textarea class="form-control" id="modifyContent" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modifyScore" class="form-label">점수</label>
+                            <select id="modifyScore" class="form-select">
+                                <option value="1">1점</option>
+                                <option value="2">2점</option>
+                                <option value="3">3점</option>
+                                <option value="4">4점</option>
+                                <option value="5">5점</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                        <button type="button" class="btn btn-primary" id="saveModifyBtn">저장</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script th:inline="javascript">
+            const tno = [[${tvo.tno}]];
+            console.log(tno);
+        </script>
+        <script th:src="@{/js/reviewPage.js}"></script>
+    </th:block>
+</th:block>
+</html>
